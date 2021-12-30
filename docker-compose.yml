@@ -1,0 +1,39 @@
+version: "2"
+services:
+  coffieUI:
+    image: webapp-client
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./coffieUI:/coffie-machine/src/coffiemaker
+      - /coffieUI/node_modules
+    entrypoint: [ "npm", "start" ]
+    links:
+      - coffieAPI
+    networks: [ webappnetwork ]
+  coffieAPI:
+    image: webapp-api
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./coffieAPI:/api
+      - /coffieAPI/node_modules
+    depends_on:
+      - coffiemongodb
+    networks: [ webappnetwork ]
+  coffiemongodb:
+    image: mongo
+    restart: always
+    container_name: coffiemongodb
+    volumes:
+      - ./data-node:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --noauth --smallfiles
+    networks:
+      - webappnetwork
+networks:
+  webappnetwork:
+    driver: bridge
