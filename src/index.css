@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* background-image: url("https://previews.123rf.com/images/volody10/volody101905/volody10190500930/137257005-coffee-beans-isolated-on-white-background-with-copyspace-for-text-coffee-background-or-texture-conce.jpg");
+    background-repeat: no-repeat; */
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
